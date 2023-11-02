@@ -17,5 +17,10 @@ jobs:
       with:
         python-version: 3.8
 
+    - name: 설치 필수 패키지
+      run: |
+        pip install -r requirements.txt
+      working-directory: ${{ github.workspace }}
+
     - name: ThingSpeak 스크립트 실행
       run: python thingspeak_action.py
