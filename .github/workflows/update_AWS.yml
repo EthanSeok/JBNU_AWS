@@ -1,0 +1,21 @@
+name: Update AWS
+
+on:
+  schedule:
+    - cron: '0 * * * *'
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout 코드
+      uses: actions/checkout@v2
+
+    - name: 실행 환경 설정
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.8
+
+    - name: ThingSpeak 스크립트 실행
+      run: python thingspeak_action.py
