@@ -24,20 +24,20 @@ def get_aws(year, month, day):
     return temp, humid, Radn, wind_from, wind, rain, battery, timestamp
 
 def save_to_csv(year, month, day, data):
-    filename = f'./output/{year}'
+    filename = f'./output/'
     if not os.path.exists(filename):
         os.makedirs(filename)
 
     if not data.empty:
-        if os.path.exists(f'{filename}/{month}.csv'):
-            df = pd.read_csv(f'{filename}/{month}.csv')
+        if os.path.exists(f'{year}_{month}.csv'):
+            df = pd.read_csv(f'{filename}/{year}_{month}.csv')
             new_data = data.rename(columns={0:'Timestamp', 1:'Temp', 2:'Humid', 6:'Radn', 7:'Wind_degree', 13:'Wind', 14:'Rainfall', 16:'Battery'})
             df = pd.concat([df, new_data], ignore_index=True)
             df = df.drop_duplicates('Timestamp')
-            df.to_csv(f'{filename}/{month}.csv', index=False)
+            df.to_csv(f'{filename}/{year}_{month}.csv', index=False)
         else:
             df = data.rename(columns={0:'Timestamp', 1:'Temp', 2:'Humid', 6:'Radn', 7:'Wind_degree', 13:'Wind', 14:'Rainfall', 16:'Battery'})
-            df.to_csv(f'{filename}/{month}.csv', index=False)
+            df.to_csv(f'{filename}/{year}_{month}.csv', index=False)
     else:
         print("데이터가 비어있습니다.")
 
