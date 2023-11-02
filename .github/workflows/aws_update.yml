@@ -32,6 +32,8 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Test with pytest
       run: python thingspeak_action.py
+      env:
+        MY_GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
 
     - name: Commit and push changes
       run: |
@@ -39,5 +41,3 @@ jobs:
         git add ./output/*.csv
         git commit -m "Update Weather Data - $(TZ='Asia/Seoul' date +'%Y-%m-%d')"
         git push
-
-        
