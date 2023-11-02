@@ -8,6 +8,8 @@
 
 * 파일 다운로드
 ```
+import requests
+
 year = 2023 ## 연도
 month = 11  ## 원하는 달
 
