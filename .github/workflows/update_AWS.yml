@@ -5,22 +5,33 @@ on:
     - cron: '0 * * * *'
 
 jobs:
-  update:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout 코드
+    - name: Checkout Repository
       uses: actions/checkout@v2
 
-    - name: 실행 환경 설정
+    - name: Set up Python
       uses: actions/setup-python@v2
       with:
-        python-version: 3.8
+        python-version: 3.x
 
-    - name: 설치 필수 패키지
+    - name: Install dependencies
       run: |
-        pip install -r requirements.txt
-      working-directory: ${{ github.workspace }}
+        python -m pip install --upgrade pip
+        pip install ruff pytest
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
-    - name: ThingSpeak 스크립트 실행
-      run: python thingspeak_action.py
+    - name: Run Python Script
+      run: python thingspeack_action.py
+      env:
+        MY_GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
+
+    - name: Commit and push changes
+      run: |
+        git config --global user.name "Seungwon Seok"
+        git add ./output/*.csv
+        git commit -m "Update Weather Data - $(TZ='Asia/Seoul' date +'%Y-%m-%d')"
+        git push
+
