@@ -42,16 +42,13 @@ def send_data(year, month, day):
     urllib.request.urlopen(url)
 
 def main():
-    while True:
-        current_date = datetime.now()
-        year = current_date.year
-        month = str(current_date.month).zfill(2)
-        day = str(current_date.day).zfill(2)
+    current_date = datetime.now()
+    year = current_date.year
+    month = str(current_date.month).zfill(2)
+    day = str(current_date.day).zfill(2)
 
-        get_aws(year, month, day)
-        send_data(year, month, day)
-
-        time.sleep(600)
+    get_aws(year, month, day)
+    send_data(year, month, day)
 
 
 if __name__=='__main__':
