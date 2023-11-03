@@ -3,6 +3,7 @@ from datetime import datetime, timedelta
 import pandas as pd
 import requests
 import time
+import os
 
 def get_aws(year, month, day):
     api_url = f"http://203.239.47.148:8080/dspnet.aspx?Site=85&Dev=1&Year={year}&Mon={month}&Day={day}"
@@ -24,7 +25,9 @@ def get_aws(year, month, day):
 
 
 def send_data(year, month, day):
-    api_key = 'YI28P7EV0SM1J1B9'
+    THINGSPEAK_URL = os.environ['THINGSPEAK_URL']
+
+    api_key = THINGSPEAK_URL
     url = 'https://api.thingspeak.com/update'
     url = url + '?api_key=%s' % api_key
     url = url + '&field1=%s' % get_aws(year, month, day)[0]
