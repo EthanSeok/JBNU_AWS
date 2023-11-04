@@ -23,7 +23,7 @@ jobs:
         pip install ruff pytest
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Run Python Script
-      run: python thingspeak_action.py
+      run: python to_thingspeak.py
       env:
         MY_GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
         THINGSPEAK_URL: ${{ secrets.THINGSPEAK_URL }}
