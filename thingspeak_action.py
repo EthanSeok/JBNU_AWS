@@ -1,8 +1,6 @@
-import urllib.request
-from datetime import datetime, timedelta
+from datetime import datetime
 import pandas as pd
 import requests
-import time
 import os
 
 def get_aws(year, month, day):
@@ -28,17 +26,19 @@ def save_to_csv(year, month, day, data):
     if not os.path.exists(filename):
         os.makedirs(filename)
 
-    if not data.empty:
-        if os.path.exists(f'{year}_{month}.csv'):
-            df = pd.read_csv(f'{filename}/{year}_{month}.csv')
-            new_data = data.rename(columns={0:'Timestamp', 1:'Temp', 2:'Humid', 6:'Radn', 7:'Wind_degree', 13:'Wind', 14:'Rainfall', 16:'Battery'})
-            df = pd.concat([df, new_data], ignore_index=True)
-            df = df.drop_duplicates('Timestamp')
-            df.to_csv(f'{filename}/{year}_{month}.csv', index=False)
-        else:
-            df = data.rename(columns={0:'Timestamp', 1:'Temp', 2:'Humid', 6:'Radn', 7:'Wind_degree', 13:'Wind', 14:'Rainfall', 16:'Battery'})
-            df.to_csv(f'{filename}/{year}_{month}.csv', index=False)
+    file_path = os.path.join(filename, f'{year}_{month}.csv')
+
+    if os.path.exists(file_path):
+        existing_data = pd.read_csv(file_path)
+        new_data = data.rename(columns={0: 'Timestamp', 1: 'Temp', 2: 'Humid', 6: 'Radn', 7: 'Wind_degree', 13: 'Wind', 14: 'Rainfall', 16: 'Battery'})
+        merged_data = pd.concat([existing_data, new_data], ignore_index=True)
+        merged_data = merged_data.drop_duplicates('Timestamp')
+        merged_data.to_csv(file_path, index=False)
     else:
+        df = data.rename(columns={0: 'Timestamp', 1: 'Temp', 2: 'Humid', 6: 'Radn', 7: 'Wind_degree', 13: 'Wind', 14: 'Rainfall', 16: 'Battery'})
+        df.to_csv(file_path, index=False)
+
+    if data.empty:
         print("데이터가 비어있습니다.")
 
 def main():
