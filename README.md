@@ -1,6 +1,5 @@
 ## 전북대학교 학습도서관 옥상 AWS 기상대 기상자료 수집
 
----
 
 * 학습도서관 옥상 AWS를 1시간 간격으로 업데이트 되며, 1분 단위로 로깅됩니다.
 
@@ -30,3 +29,16 @@ response = urllib.request.urlopen(url)
 df = pd.read_csv(response)
 print(df)
 ```
+
+<br>
+
+### 기상자료 분석
+![일교차](https://github.com/EthanSeok/JBNU_AWS/assets/93086581/025a4c0d-0551-4b4b-84e2-d185bcfd10c3)
+
+![시간별 습도](https://github.com/EthanSeok/JBNU_AWS/assets/93086581/cd988f4e-7326-4bed-9020-a934c3a67966)
+
+![일별 누적광량](https://github.com/EthanSeok/JBNU_AWS/assets/93086581/dcd62ec7-4b4b-4308-b927-4647a918014a)
+
+![일별 강수량](https://github.com/EthanSeok/JBNU_AWS/assets/93086581/d54807d5-c3ed-46b6-b21b-b1d4208b8c96)
+
+![일별 평균, 최대, 최저 기온](https://github.com/EthanSeok/JBNU_AWS/assets/93086581/f11fd396-be2e-4f82-a8e3-baee83b23e1d)
