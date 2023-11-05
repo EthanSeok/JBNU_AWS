@@ -32,6 +32,16 @@ print(df)
 
 <br>
 
+### Thingspeak 로깅
+
+`to_thingspeak.py`를 github action을 통해 10분 단위로 전송  
+[https://thingspeak.com/channels/2328695](https://thingspeak.com/channels/2328695)
+
+<img src="https://github.com/EthanSeok/JBNU_AWS/assets/93086581/0a3c7c23-9293-4673-ba89-2d93b643e102" height="700">
+
+
+<br>
+
 ### 기상자료 분석
 ![일교차](https://github.com/EthanSeok/JBNU_AWS/assets/93086581/025a4c0d-0551-4b4b-84e2-d185bcfd10c3)
 
