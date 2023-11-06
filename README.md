@@ -9,11 +9,19 @@
 ```
 import requests
 
-year = 2023 ## 연도
-month = 11  ## 원하는 달
+year = 2023
+month = 11
 
 url = f"https://raw.githubusercontent.com/EthanSeok/JBNU_AWS/main/output/{year}_{month}.csv"
 response = requests.get(url)
+
+if response.status_code == 200:
+    with open(f"{year}_{month}.csv", 'wb') as file:
+        file.write(response.content)
+    print(f"파일 {year}_{month}.csv을 다운로드했습니다.")
+else:
+    print(f"파일 다운로드에 실패했습니다. 상태 코드: {response.status_code}")
+
 ```
 
 * 파이썬 pandas 활용 데이터프레임
