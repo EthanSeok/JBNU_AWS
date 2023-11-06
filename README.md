@@ -43,12 +43,12 @@ print(df)
 <br>
 
 ### 기상자료 분석
-![일교차](https://github.com/EthanSeok/JBNU_AWS/assets/93086581/025a4c0d-0551-4b4b-84e2-d185bcfd10c3)
+![daily_temperature_diff](https://github.com/EthanSeok/JBNU_AWS/assets/93086581/86df1af9-0af5-4250-9664-afa2abfc1c85)
 
-![시간별 습도](https://github.com/EthanSeok/JBNU_AWS/assets/93086581/cd988f4e-7326-4bed-9020-a934c3a67966)
+![humid](https://github.com/EthanSeok/JBNU_AWS/assets/93086581/6e20d239-5861-4916-ac31-02a14c3f042e)
 
-![일별 누적광량](https://github.com/EthanSeok/JBNU_AWS/assets/93086581/dcd62ec7-4b4b-4308-b927-4647a918014a)
+![radn_plot](https://github.com/EthanSeok/JBNU_AWS/assets/93086581/505e9f9b-a447-4ff1-98c7-8a39c5a48a14)
 
-![일별 강수량](https://github.com/EthanSeok/JBNU_AWS/assets/93086581/d54807d5-c3ed-46b6-b21b-b1d4208b8c96)
+![rainfall](https://github.com/EthanSeok/JBNU_AWS/assets/93086581/ec77fcb9-0c62-4af8-9249-ac0dad7c1554)
 
-![일별 평균, 최대, 최저 기온](https://github.com/EthanSeok/JBNU_AWS/assets/93086581/f11fd396-be2e-4f82-a8e3-baee83b23e1d)
+![temp_total](https://github.com/EthanSeok/JBNU_AWS/assets/93086581/84f59cb0-9734-4b0e-a2c8-c3906a7b1e8f)
