@@ -5,14 +5,14 @@ import seaborn as sns
 import os
 
 ## windows
-font_path = "C:/Windows/Fonts/KoPubDotumMedium.ttf"
-font = font_manager.FontProperties(fname=font_path).get_name()
-plt.rcParams['axes.unicode_minus'] = False
-rc('font', family=font)
+# font_path = "C:/Windows/Fonts/KoPubDotumMedium.ttf"
+# font = font_manager.FontProperties(fname=font_path).get_name()
+# plt.rcParams['axes.unicode_minus'] = False
+# rc('font', family=font)
 
 ## mac
-# rc('font', family='AppleGothic')
-# plt.rcParams['axes.unicode_minus'] = False
+rc('font', family='AppleGothic')
+plt.rcParams['axes.unicode_minus'] = False
 
 size = 11.5
 params = {'legend.fontsize': size,
