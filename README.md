@@ -30,7 +30,7 @@ import urllib.request
 import pandas as pd
 
 year = 2023
-month = 11
+month = '01'
 url = f"https://raw.githubusercontent.com/EthanSeok/JBNU_AWS/main/output/{year}_{month}.csv"
 
 response = urllib.request.urlopen(url)
